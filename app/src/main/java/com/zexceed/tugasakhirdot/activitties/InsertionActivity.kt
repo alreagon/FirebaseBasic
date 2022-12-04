@@ -1,10 +1,11 @@
-package com.zexceed.tugasakhirdot
+package com.zexceed.tugasakhirdot.activitties
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.zexceed.tugasakhirdot.models.FirebaseModel
 import com.zexceed.tugasakhirdot.databinding.ActivityInsertionBinding
 
 class InsertionActivity : AppCompatActivity() {
@@ -53,6 +54,11 @@ class InsertionActivity : AppCompatActivity() {
         dbRef.child(mgnId).setValue(mangan)
             .addOnCompleteListener {
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show()
+
+                binding.etNamaMenu.text.clear()
+                binding.etJumlahMenu.text.clear()
+                binding.etHargaMenu.text.clear()
+
             }.addOnFailureListener { err ->
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
             }

@@ -1,4 +1,4 @@
-package com.zexceed.tugasakhirdot
+package com.zexceed.tugasakhirdot.models
 
 data class FirebaseModel(
     var mgnId : String? = null,

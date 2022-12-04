@@ -1,9 +1,8 @@
-package com.zexceed.tugasakhirdot
+package com.zexceed.tugasakhirdot.activitties
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import com.zexceed.tugasakhirdot.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +17,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnInsertData.setOnClickListener {
             val intent = Intent(this, InsertionActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnfetchtData.setOnClickListener {
+            val intent = Intent(this, FetchingActivity::class.java)
             startActivity(intent)
         }
 
