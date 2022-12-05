@@ -2,7 +2,6 @@ package com.zexceed.tugasakhirdot.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.zexceed.tugasakhirdot.databinding.ListItemBinding
@@ -10,6 +9,16 @@ import com.zexceed.tugasakhirdot.models.FirebaseModel
 
 class manganAdapter(private val mgnList: ArrayList<FirebaseModel>) :
     RecyclerView.Adapter<manganAdapter.ViewHolder>() {
+
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener {
+        fun onItemClick(data: FirebaseModel, position: Int)
+    }
+
+    fun setOnClickListener(clickListener: onItemClickListener) {
+        this.mListener = clickListener
+    }
 
     class ViewHolder(var binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -29,13 +38,12 @@ class manganAdapter(private val mgnList: ArrayList<FirebaseModel>) :
             etHargaMenu.text = harga
             etJumlahMenu.text = jumlah
             etNamaMenu.text = nama
+            cardView.setOnClickListener {
+                mListener.onItemClick(mgnList[holder.adapterPosition], position)
+            }
         }
     }
 
     override fun getItemCount() = mgnList.size
-
-//    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//
-//    }
 
 }

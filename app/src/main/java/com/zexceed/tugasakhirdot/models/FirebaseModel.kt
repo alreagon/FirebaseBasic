@@ -5,5 +5,4 @@ data class FirebaseModel(
     var mgnNama : String? = null,
     var mgnJumlah : String? = null,
     var mgnHarga : String? = null
-
 )

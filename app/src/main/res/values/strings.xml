@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tugas Akhir DOT</string>
+    <string name="nama_menu">Nama menu</string>
+    <string name="jumlah_menu">Jumlah menu</string>
+    <string name="harga_menu">Harga menu</string>
+    <string name="save_data">Save data</string>
 </resources>
