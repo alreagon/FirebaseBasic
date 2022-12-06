@@ -1,95 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:padding="50dp"
     tools:context=".activitties.InsertionActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilNamaMenu"
-        style="@style/TextInputLayoutPrimary"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        app:errorIconDrawable="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@color/white"
+        android:padding="50dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etNamaMenu"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNamaMenu"
+            style="@style/TextInputLayoutPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nama_menu"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="#757575" />
+            android:layout_marginTop="30dp"
+            app:errorIconDrawable="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNamaMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_menu"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="#757575" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilJumlahMenu"
-        style="@style/TextInputLayoutPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:counterMaxLength="2"
-        app:counterEnabled="false"
-        app:errorIconDrawable="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilNamaMenu">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etJumlahMenu"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilJumlahMenu"
+            style="@style/TextInputLayoutPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:maxLength="3"
-            android:hint="@string/jumlah_menu"
-            android:singleLine="true"
-            android:textColor="@color/black" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="30dp"
+            app:counterEnabled="false"
+            app:counterMaxLength="2"
+            app:errorIconDrawable="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilNamaMenu">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilHargaMenu"
-        style="@style/TextInputLayoutPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:prefixText="Rp."
-        app:prefixTextColor="@color/red"
-        app:errorIconDrawable="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilJumlahMenu">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etJumlahMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/jumlah_menu"
+                android:inputType="numberDecimal"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etHargaMenu"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilHargaMenu"
+            style="@style/TextInputLayoutPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/harga_menu"
-            android:inputType="number"
-            android:singleLine="true"
-            android:textColor="@color/black" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="30dp"
+            app:errorIconDrawable="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilJumlahMenu"
+            app:prefixText="Rp."
+            app:prefixTextColor="@color/red">
 
-    <Button
-        android:id="@+id/btnSaveData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/save_data"
-        android:textAllCaps="false"
-        android:enabled="false"
-        android:clickable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilHargaMenu" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etHargaMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/harga_menu"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/iVGambar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/border_iv"
+            app:layout_constraintTop_toBottomOf="@id/tilHargaMenu" />
+
+        <Button
+            android:id="@+id/btnSaveData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:text="@string/save_data"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iVGambar" />
+
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:text="Select image"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSaveData" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

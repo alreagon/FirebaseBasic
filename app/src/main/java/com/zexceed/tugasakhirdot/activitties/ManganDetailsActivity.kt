@@ -17,7 +17,7 @@ class ManganDetailsActivity : AppCompatActivity() {
     }
 
     private fun setValuesToViews() {
-        binding.tvMgnId.text = intent.getStringExtra("mgnId")
+//        binding.tvMgnId.text = intent.getStringExtra("mgnId")
         binding.tvMgnNama.text = intent.getStringExtra("mgnNama")
         binding.tvMgnJumlah.text = intent.getStringExtra("mgnJumlah")
         binding.tvMgnHarga.text = intent.getStringExtra("mgnHarga")
