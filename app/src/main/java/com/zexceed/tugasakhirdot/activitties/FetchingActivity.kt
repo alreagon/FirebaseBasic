@@ -15,6 +15,7 @@ class FetchingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFetchingBinding
     private lateinit var mgnList: ArrayList<FirebaseModel>
     private lateinit var dbMgn: DatabaseReference
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -6,14 +6,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.zexceed.tugasakhirdot.databinding.ActivityInsertionBinding
 import com.zexceed.tugasakhirdot.models.FirebaseModel
-import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,6 +24,8 @@ class InsertionActivity : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
     private lateinit var binding: ActivityInsertionBinding
     private lateinit var imageURI: Uri
+    private var storageReferenceDude: StorageReference =
+        FirebaseStorage.getInstance().getReference()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,14 +59,11 @@ class InsertionActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 100 && resultCode == RESULT_OK) {
+        if (requestCode == 100 && resultCode == RESULT_OK && data !== null) {
 
-            imageURI = data?.data!!
+            imageURI = data.data!!
             binding.iVGambar.setImageURI(imageURI)
-
         }
-
-
     }
 
     private fun saveManganData() {
@@ -127,52 +127,69 @@ class InsertionActivity : AppCompatActivity() {
 
         } else {
 
-            val mgnId = dbRef.push().key!!
-            val mangan = FirebaseModel(mgnId, mgnNama, mgnJumlah, mgnHarga)
+            val progressDialog = ProgressDialog(this)
+            progressDialog.setMessage("Uploading file...")
+            progressDialog.setCancelable(false)
+            progressDialog.show()
 
-            //ngebuat child dari id nya
-            dbRef.child(mgnId).setValue(mangan)
-                .addOnCompleteListener {
-                    Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show()
+            //buat format image berdasarkan tanggal
+            val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
+            val now = Date()
+            val fileName = formatter.format(now)
+//            val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
 
-                    binding.etNamaMenu.text!!.clear()
-                    binding.etJumlahMenu.text!!.clear()
-                    binding.etHargaMenu.text!!.clear()
+            val jadiLink: StorageReference =
+                storageReferenceDude.child(fileName + "." + getFileExtension(imageURI))
+            //storageReferenceDude.child(System.currentTimeMillis().toString() + "." + getFileExtension(imageURI))
+            //storageReferenceDude.child("images/" + UUID.randomUUID().toString())
+            jadiLink.putFile(imageURI)
+                .addOnSuccessListener {
+                    jadiLink.downloadUrl.addOnSuccessListener { uri ->
 
-                }.addOnFailureListener { err ->
-                    Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
+                        val mgnId = dbRef.push().key!!
+                        val mangan =
+                            FirebaseModel(mgnId, mgnNama, mgnJumlah, mgnHarga, uri.toString())
+
+                        //ngebuat child dari id nya
+                        dbRef.child(mgnId).setValue(mangan)
+                            .addOnCompleteListener {
+                                Toast.makeText(
+                                    this,
+                                    "Data inserted successfully",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                binding.etNamaMenu.text!!.clear()
+                                binding.etJumlahMenu.text!!.clear()
+                                binding.etHargaMenu.text!!.clear()
+
+                            }.addOnFailureListener { err ->
+                                Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+//                        val firebaseModelId = dbRef.push().key
+//                        val firebaseModel = FirebaseModel(uri.toString())
+//                        dbRef.child(mgnId!!).setValue(mangan)
+
+                        binding.iVGambar.setImageURI(null) //why null, c, kita udh upload imagenya
+//                        Toast.makeText(this, "Successfully image uploaded!", Toast.LENGTH_SHORT).show()
+                        if (progressDialog.isShowing) progressDialog.dismiss()
+                    }
+
+
+                }.addOnFailureListener {
+                    if (progressDialog.isShowing) progressDialog.dismiss()
+                    Toast.makeText(this, "Failed image uploaded!", Toast.LENGTH_SHORT).show()
                 }
-            imageUpload()
 
         }
 
     }
 
-    private fun imageUpload() {
 
-        val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Uploading file...")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
-
-        //buat format image berdasarkan tanggal
-        val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
-        val now = Date()
-        val fileName = formatter.format(now)
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
-
-        storageReference.putFile(imageURI).addOnCompleteListener {
-
-            binding.iVGambar.setImageURI(null) //why null, c, kita udh upload imagenya
-            Toast.makeText(this, "Successfully uploaded!", Toast.LENGTH_SHORT).show()
-            if (progressDialog.isShowing) progressDialog.dismiss()
-
-
-        }.addOnFailureListener {
-            if (progressDialog.isShowing) progressDialog.dismiss()
-            Toast.makeText(this, "Failed uploaded!", Toast.LENGTH_SHORT).show()
-        }
-
+    private fun getFileExtension(mUri: Uri): String? {
+        val cr = contentResolver
+        val mime = MimeTypeMap.getSingleton()
+        return mime.getExtensionFromMimeType(cr.getType(mUri))
     }
 }
 

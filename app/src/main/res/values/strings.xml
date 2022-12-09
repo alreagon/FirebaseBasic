@@ -4,4 +4,6 @@
     <string name="jumlah_menu">Jumlah menu</string>
     <string name="harga_menu">Harga menu</string>
     <string name="save_data">Save data</string>
+    <string name="select_image">Select image</string>
+    <string name="nama_makanan">Nama makanan</string>
 </resources>

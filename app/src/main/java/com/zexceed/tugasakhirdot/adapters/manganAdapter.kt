@@ -35,8 +35,6 @@ class manganAdapter(private val mgnList: ArrayList<FirebaseModel>) :
 
         Log.d("adapter", "nama mangan Adapter : $nama")
         holder.binding.apply {
-            etHargaMenu.text = harga
-            etJumlahMenu.text = jumlah
             etNamaMenu.text = nama
             cardView.setOnClickListener {
                 mListener.onItemClick(mgnList[holder.adapterPosition], position)
