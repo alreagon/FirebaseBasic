@@ -32,6 +32,7 @@ class FetchingActivity : AppCompatActivity() {
         binding.apply {
             rvFetching.layoutManager = LinearLayoutManager(this@FetchingActivity)
             rvFetching.setHasFixedSize(true)
+
         }
         mgnList = arrayListOf<FirebaseModel>()
     }
@@ -63,6 +64,7 @@ class FetchingActivity : AppCompatActivity() {
                             intent.putExtra("mgnNama", mgnList[position].mgnNama)
                             intent.putExtra("mgnJumlah", mgnList[position].mgnJumlah)
                             intent.putExtra("mgnHarga", mgnList[position].mgnHarga)
+                            intent.putExtra("mgnGambar", mgnList[position].mgnImage)
 
                             startActivity(intent)
                         }

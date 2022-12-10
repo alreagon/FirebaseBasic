@@ -1,12 +1,15 @@
 package com.zexceed.tugasakhirdot.activitties
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.zexceed.tugasakhirdot.databinding.ActivityManganDetailsBinding
+
 
 class ManganDetailsActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityManganDetailsBinding
+    private lateinit var binding: ActivityManganDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,9 +20,13 @@ class ManganDetailsActivity : AppCompatActivity() {
     }
 
     private fun setValuesToViews() {
-//        binding.tvMgnId.text = intent.getStringExtra("mgnId")
-        binding.tvMgnNama.text = intent.getStringExtra("mgnNama")
-        binding.tvMgnJumlah.text = intent.getStringExtra("mgnJumlah")
-        binding.tvMgnHarga.text = intent.getStringExtra("mgnHarga")
+        binding.apply {
+            tvMgnNama.text = intent.getStringExtra("mgnNama")
+            tvMgnJumlah.text = intent.getStringExtra("mgnJumlah")
+            tvMgnHarga.text = intent.getStringExtra("mgnHarga")
+            val iVDetail = intent.getStringExtra("mgnGambar")
+            Glide.with(this@ManganDetailsActivity).load(iVDetail).into(iVGambarDetail)
+
+        }
     }
 }
