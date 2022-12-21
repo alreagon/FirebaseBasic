@@ -1,168 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".activitties.ManganDetailsActivity">
+    android:layout_margin="16dp"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+
+    <me.grantland.widget.AutofitTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="Android AutoFit TextView Example"
+        android:textSize="42sp"
+        autofit:minTextSize="5sp" />
 
-        <LinearLayout
-            android:id="@+id/contact_lin"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
+    <me.grantland.widget.AutofitTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:singleLine="true"
+        android:text="Android AutoFit TextView Example. A TextView that automatically resizes text to fit perfectly within its bounds"
+        android:textSize="42sp"
+        autofit:minTextSize="5sp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.6"
-                android:background="@color/divider_grey">
+    <me.grantland.widget.AutofitTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="Android Autofit TextView"
+        android:textSize="42sp"
+        autofit:minTextSize="5sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text="Mgn Name"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
+    <me.grantland.widget.AutofitTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:singleLine="true"
+        android:text="Android Autofit TextView: Automatically Resize text"
+        android:textSize="42sp"
+        autofit:minTextSize="5sp" />
 
-            </LinearLayout>
+    <me.grantland.widget.AutofitTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="Android Autofit TextView: Automatically Resize Text to Fit Perfectly within its Bounds"
+        android:textSize="42sp"
+        autofit:minTextSize="5sp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.4">
-
-                <TextView
-                    android:id="@+id/tvMgnNama"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-
-                    />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.6"
-                android:background="@color/divider_grey">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text="Mgn Harga"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.4">
-
-                <TextView
-                    android:id="@+id/tvMgnHarga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.6"
-                android:background="@color/divider_grey">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text="Mgn jumlah"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.4">
-
-                <TextView
-                    android:id="@+id/tvMgnJumlah"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
+</LinearLayout>
 
 
-        </LinearLayout>
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:background="@color/background"-->
+    <!--    tools:context=".activitties.ManganDetailsActivity">-->
 
-        <ImageView
-            android:id="@+id/iVGambarDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop" />
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    </LinearLayout>
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/contact_lin"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="40dp"-->
+    <!--            android:layout_marginLeft="10dp"-->
+    <!--            android:layout_marginRight="10dp"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:weightSum="2">-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_weight="0.6"-->
+    <!--                android:background="@color/divider_grey">-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:fontFamily="@font/poppins"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:text="Mgn Name"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="15sp" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_weight="1.4">-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvMgnNama"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:fontFamily="@font/poppins"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:text=""-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="15sp"-->
+
+    <!--                    />-->
+
+    <!--            </LinearLayout>-->
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="40dp"-->
+    <!--            android:layout_marginLeft="10dp"-->
+    <!--            android:layout_marginRight="10dp"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:weightSum="2">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_weight="0.6"-->
+    <!--                android:background="@color/divider_grey">-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:fontFamily="@font/poppins"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:text="Mgn Harga"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="15sp" />-->
+    <!--            </LinearLayout>-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_weight="1.4">-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvMgnHarga"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:fontFamily="@font/poppins"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:text=""-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="15sp" />-->
+
+    <!--            </LinearLayout>-->
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="40dp"-->
+    <!--            android:layout_marginLeft="10dp"-->
+    <!--            android:layout_marginRight="10dp"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:weightSum="2">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_weight="0.6"-->
+    <!--                android:background="@color/divider_grey">-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:fontFamily="@font/poppins"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:text="Mgn jumlah"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="15sp" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_weight="1.4">-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tvMgnJumlah"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:fontFamily="@font/poppins"-->
+    <!--                    android:gravity="center"-->
+    <!--                    android:text=""-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="15sp" />-->
+
+    <!--            </LinearLayout>-->
+
+
+    <!--        </LinearLayout>-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/iVGambarDetail"-->
+    <!--            android:layout_width="200dp"-->
+    <!--            android:layout_height="200dp"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:layout_marginTop="30dp"-->
+    <!--            android:background="@drawable/border_iv"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/tilHargaMenu" />-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="30dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:orientation="horizontal">-->
+
+    <!--            &lt;!&ndash;            <Button&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:id="@+id/btnUpdate"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_width="120dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_gravity="center"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:background="@drawable/rounded_button_primary"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:clickable="false"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:fontFamily="@font/poppins"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:text="Update"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:textAllCaps="false" />&ndash;&gt;-->
+
+    <!--            &lt;!&ndash;            <Button&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:background="@drawable/rounded_button_primary"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:id="@+id/btnDelete"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_width="120dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_gravity="center"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:layout_marginLeft="30dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:clickable="false"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:fontFamily="@font/poppins"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:text="Delete"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                android:textAllCaps="false" />&ndash;&gt;-->
+
+    <!--        </LinearLayout>-->
+
+    <!--    </LinearLayout>-->
+
+    <!--</ScrollView>-->

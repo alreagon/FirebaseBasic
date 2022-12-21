@@ -1,4 +1,7 @@
 <resources>
+    <!--    <String name="Judul_project">Membuat aplikasi resep -->
+    <!--        makanan sederhana menggunakan Firebase-->
+    <!--        Realtime Database </String>-->
     <string name="app_name">Tugas Akhir DOT</string>
     <string name="nama_menu">Nama menu</string>
     <string name="jumlah_menu">Jumlah menu</string>
@@ -6,4 +9,6 @@
     <string name="save_data">Save data</string>
     <string name="select_image">Select image</string>
     <string name="nama_makanan">Nama makanan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

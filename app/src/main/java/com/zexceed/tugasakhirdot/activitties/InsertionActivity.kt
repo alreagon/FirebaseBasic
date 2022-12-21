@@ -69,23 +69,24 @@ class InsertionActivity : AppCompatActivity() {
     private fun saveManganData() {
         //getting values
         val mgnNama = binding.etNamaMenu.text.toString()
-        val mgnJumlah = binding.etJumlahMenu.text.toString()
         val mgnHarga = binding.etHargaMenu.text.toString()
+        val mgnDesk = binding.etDeskMenu.text.toString()
+//        val mgnIv = binding.iVDeskripsiInsert
 
         binding.apply {
             if (mgnNama.isEmpty()) {
                 etNamaMenu.error = "Nama jgn kosong!"
             }
-            if (mgnJumlah.isEmpty()) {
-                etJumlahMenu.error = "Jumlah jgn kosong!"
-            }
             if (mgnHarga.isEmpty()) {
                 etHargaMenu.error = "Harga jgn kosong!"
+            }
+            if (mgnHarga.isEmpty()) {
+                etDeskMenu.error = "Deskripsi jgn kosong!"
             }
 
             btnSaveData.isClickable = false
             btnSelectImage.isClickable = false
-            val editTexts = listOf(etNamaMenu, etHargaMenu, etJumlahMenu)
+            val editTexts = listOf(etNamaMenu, etHargaMenu, etDeskMenu)
             for (editText in editTexts) {
                 editText.addTextChangedListener(object : TextWatcher {
                     override fun onTextChanged(
@@ -94,9 +95,12 @@ class InsertionActivity : AppCompatActivity() {
                         before: Int,
                         count: Int
                     ) {
+
+
+
                         val et1 = etNamaMenu.text.toString().trim()
                         val et2 = etHargaMenu.text.toString().trim()
-                        val et3 = etJumlahMenu.text.toString().trim()
+                        val et3 = etDeskMenu.text.toString().trim()
 
                         btnSaveData.isClickable = et1.isNotEmpty()
                                 && et2.isNotEmpty()
@@ -104,6 +108,15 @@ class InsertionActivity : AppCompatActivity() {
                         btnSelectImage.isClickable = et1.isNotEmpty()
                                 && et2.isNotEmpty()
                                 && et3.isNotEmpty()
+
+
+
+//                        mgnIv.text = s.toString()
+//                        var size = mgnIv.textSize
+//                        size /= 3
+//                        editTexts[1].textSize = size
+//                        arrayOf(editText)[1].textSize = size
+//                        editText.textSize = size
 
                     }
 
@@ -122,7 +135,7 @@ class InsertionActivity : AppCompatActivity() {
 
         }
 
-        if (mgnHarga.isEmpty() || mgnJumlah.isEmpty() || mgnHarga.isEmpty()) {
+        if (mgnHarga.isEmpty() || mgnDesk.isEmpty() || mgnHarga.isEmpty()) {
             Toast.makeText(this, "Data gk boleh kosong!", Toast.LENGTH_SHORT).show()
 
         } else {
@@ -148,7 +161,7 @@ class InsertionActivity : AppCompatActivity() {
 
                         val mgnId = dbRef.push().key!!
                         val mangan =
-                            FirebaseModel(mgnId, mgnNama, mgnJumlah, mgnHarga, uri.toString())
+                            FirebaseModel(mgnId, mgnNama, mgnHarga, mgnDesk, uri.toString())
 
                         //ngebuat child dari id nya
                         dbRef.child(mgnId).setValue(mangan)
@@ -159,8 +172,8 @@ class InsertionActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 binding.etNamaMenu.text!!.clear()
-                                binding.etJumlahMenu.text!!.clear()
                                 binding.etHargaMenu.text!!.clear()
+                                binding.etDeskMenu.text!!.clear()
 
                             }.addOnFailureListener { err ->
                                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT)

@@ -6,8 +6,13 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="itemTransparent">#66000000</color>
+    <color name="white">#E4E3E3</color>
     <color name="divider_grey">#B8B4B4</color>
     <color name="ijo">#7ac143</color>
     <color name="red">#FF1F1F</color>
+<!--    <color name="background">#FAFAFA</color>-->
+    <color name="secondary">#FFAE47</color>
+    <color name="primary">#074F60</color>
+    <color name="background">#ECF0F1</color>
 </resources>

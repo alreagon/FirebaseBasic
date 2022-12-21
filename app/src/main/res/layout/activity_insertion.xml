@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/background"
         android:padding="50dp">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -45,44 +45,51 @@
             app:counterEnabled="false"
             app:counterMaxLength="2"
             app:errorIconDrawable="@null"
+            app:prefixText="Rp."
+            app:prefixTextColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilNamaMenu">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etJumlahMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/jumlah_menu"
-                android:inputType="numberDecimal"
-                android:maxLength="2"
-                android:singleLine="true"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilHargaMenu"
-            style="@style/TextInputLayoutPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:errorIconDrawable="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilJumlahMenu"
-            app:prefixText="Rp."
-            app:prefixTextColor="@color/red">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etHargaMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/harga_menu"
-                android:inputType="number"
+                android:hint="Harga menu"
+                android:inputType="numberDecimal"
+                android:maxLength="5"
                 android:singleLine="true"
                 android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDeskMenu"
+            style="@style/TextInputLayoutPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            app:errorIconDrawable="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilJumlahMenu">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDeskMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoSizeMaxTextSize="30dp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/poppins"
+                android:hint="Deskrpisi"
+                android:inputType="textMultiLine"
+                android:isScrollContainer="true"
+                android:maxLength="100"
+                android:maxLines="5"
+                android:scrollbars="vertical"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
@@ -91,13 +98,14 @@
             android:layout_height="200dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/border_iv"
-            app:layout_constraintTop_toBottomOf="@id/tilHargaMenu" />
+            app:layout_constraintTop_toBottomOf="@id/tilDeskMenu" />
 
         <Button
             android:id="@+id/btnSelectImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button_primary"
             android:clickable="false"
             android:fontFamily="@font/poppins"
             android:text="@string/select_image"
@@ -111,6 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button_primary"
             android:clickable="false"
             android:fontFamily="@font/poppins"
             android:text="@string/save_data"

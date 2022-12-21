@@ -60,4 +60,7 @@ dependencies {
 
     //dari firebase realtime database
     implementation 'com.google.firebase:firebase-database'
+
+
+    implementation 'me.grantland:autofittextview:0.2.+'
 }
